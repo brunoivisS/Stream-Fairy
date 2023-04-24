@@ -1,13 +1,2 @@
-necesario install o choco e install o make para automatizar os processo do docker
-Windows :Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-ubuntu:sudo apt install make
-macOS:
-    Start Xcode.
-    Go to Xcode/Preferences.
-    Click the "Downloads" tab.
-    Click "Components".
-    Click "Install" on the command line tools line.
-
-
- para que o apache conseguir ler o projeto necesario insere o arquivo 000-default.conf na pasta /etc/apache2/sites-available/
- cp 000-default.conf /etc/apache2/sites-available/
+docker-compose exec php chmod  -R 777 storage
+erro the stream or file
