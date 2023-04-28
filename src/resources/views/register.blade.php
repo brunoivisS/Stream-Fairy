@@ -69,7 +69,7 @@ background-image: url(image/background.jpg);
         </style>
     </head>
     <body >      
-      <a href="{{route('login')}}"></a>
+      <a href="{{route('users')}}"></a>
         <img src="image/StreamFairy.png" width="auto" height="auto" alt="Stickman">
         
             @if ($errors->any())
@@ -83,7 +83,7 @@ background-image: url(image/background.jpg);
     @endif      
               
                 <form method="post" action="{{url('users')}}">
-                    @csrf
+                  {{!! csrf_field() !!}}
                     <div>
                         <section class="vh-100 gradient-custom">
                             <div class="container py-5 h-100">

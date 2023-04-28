@@ -38,7 +38,7 @@ background-image: url(image/background.jpg);
 
 
       
-      <a href="{{route('user.index')}}"></a>
+    
         <img src="image/StreamFairy.png" width="auto" height="auto" alt="Stickman">
         {{-- @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">

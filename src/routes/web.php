@@ -15,26 +15,29 @@ use App\Http\Controllers\UserControler;
 |
 */
 
-
-Route::resource('/users',allController::class);
+Route::middleware(['auth','is_admin'])->group(function (){
+    Route::resource('/users',allController::class);    
+});
 // Route::controller(allController::class)->group(function (){
 //     Route::get('/user','teste')->name('test.usser');
 // });
+
 Route::controller(UserControler::class)->group(function (){
-    Route::get('/','index')->name('user.index');
+    // Route::get('/','index')->name('user.index');
+    Route::get('/','index')->name('login');
     Route::post('/','store')->name('user.store');
    
 
     // Route::get('/forgot','forgot')->name('user.forgot');
     // Route::post('/forgot','forgotup')->name('user.forgot');
-    Route::get('/create','register')->name('register.index');
+    Route::get('/users/create','register')->name('register');
     Route::post('/create','create')->name('create.register');
 
-    Route::get('/users/{user}/edit', 'edit')->name('editu.index');
-    Route::post('/users/{user}/edit','editup')->name('user.edit');
-    Route::put('/users/{user}','update')->name('user.update');
+    // Route::get('/users/{user}/edit', 'edit')->name('editu.index');
+    // Route::post('/users/{user}/edit','editup')->name('user.edit');
+    // Route::put('/users/{user}','update')->name('user.update');
     
-    Route::delete('/users/{user}','delete')->name('user.detele');
+    // Route::delete('/users/{user}','delete')->name('user.detele');
 
     // Route::post('/','delete')->name('user.delete');    
     Route::get('/logout','destroy')->name('user.destroy');
@@ -54,3 +57,4 @@ Route::controller(HomeController::class)->group(function (){
 
 
 
+// require __DIR__.'auth.php';
