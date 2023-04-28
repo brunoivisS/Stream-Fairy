@@ -31,36 +31,35 @@ background-image: url(image/background.jpg);
         </style>
     </head>
     <body >
-
-
-      @csrf
-     @if(auth()->check())
-      {{$result->name}}<a href="{{route('user.destroy')}}">Logout</a>
-
-      @endif
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="users"><img src="image/StreamFairy.png" width="250px"height="100px"></a>
+        <a class="navbar-brand" href="/home"><img src="image/StreamFairy.png" width="250px"height="100px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="    justify-content: flex-end;">
+          @if(auth()->check())
           <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown" style="    justify-content: flex-end;">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               
-             
-                <img src="" height="50px" width="50px" alt="..." class="rounded-circle">
+             {{-- //coloca image do user  --}}
+                <img src="/home" height="50px" width="50px" alt="..." class="rounded-circle">
                
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#"> {{$name->name}}</a>
+                {{-- <a class="dropdown-item" href="#">{{$name->}}</a> --}}
+                {{-- <a class="dropdown-item" href="{{url('/changes'.$name->id.)}}">Chances password</a> --}}
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-          </ul>
+                {{-- ATENÇÃO ABAIXO PODE ESTA ERRADO A URL --}}
+                <a href="{{route('user.destroy')}}">Logout</a>
+                  </div>
+                </li>
+              </ul>
+              @else
+              {{abort(304)}}
+          @endif
           
         </div>
       </nav>

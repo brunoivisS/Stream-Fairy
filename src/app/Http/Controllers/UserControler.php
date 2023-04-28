@@ -52,7 +52,7 @@ class UserControler extends Controller
         $authenticated = Auth::attempt($credentials);
 
         if(!$authenticated) {
-            return redirect()->route('user.index')->withErrors(['error' =>'email or password invalid']);
+            return redirect()->route('login')->withErrors(['error' =>'email or password invalid']);
         }
 
         return redirect()->route('home.index')->with('success','Logged in');
@@ -66,7 +66,7 @@ class UserControler extends Controller
     public function destroy()
     { 
         Auth::logout();
-        return redirect()->route('user.index');
+        return redirect()->route('login');
     }
 
     public function register(){
@@ -111,7 +111,7 @@ class UserControler extends Controller
 
 
 
-        return redirect()->route('user.index')->whith('Sucess', 'Logged in');
+        return redirect()->route('login')->whith('Sucess', 'Logged in');
     }
 
 

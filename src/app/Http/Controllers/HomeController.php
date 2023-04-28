@@ -8,10 +8,13 @@ class HomeController extends Controller
 {
     public function index()
     {
-        if(!auth()->check()){ 
-            return redirect()->route('user.index'); 
+        if(auth()->check()){ 
+            $sur = auth()->user();
+            $name = $sur;
+            return view("movies2")->with('name',$name);
+           
         } else{
-            return view("movies2");
+            return redirect()->route('login'); 
         }
         // @if(auth()->check())
        
@@ -30,7 +33,6 @@ class HomeController extends Controller
 
     public function image()
     {
-         $sur = auth()->user();
-           return $sur;
+        
     }
 }

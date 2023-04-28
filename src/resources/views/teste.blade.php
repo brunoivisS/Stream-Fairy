@@ -10,6 +10,7 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!-- Styles -->
         <style>
 /* fallback for old browsers */
@@ -67,15 +68,63 @@ background-image: url(image/background.jpg);
 
         </style>
     </head>
-    <body >   <div>
-      
-      <h2>users</h2>
-      @forelse($result as $test)
-        <li>{{$test->name}}</li>
-      @empty
-      <li>vai dormir</li>
+    <body >
 
-      @endforelse
-        
+      <div class="container">
+        <div class="row" style="margin: 20px;">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                  <h2>LARAVEL SEU MERDA FUNCIONA!  </h2>
+              </div>
+              <div class="card-body">
+                @if(auth()->check()||auth()->check()->is_admin==1)
+                  <a href="{{url('/users/register')}}" class="btn btn-success btn-sm" title="Add New User">
+                    Add New User
+                  </a>
+                    @else
+                  vai dormir
+                @endif
+                <br>
+                <br>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr class="items-center justify-center">
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Password</th>
+                        <th>Adm</th>
+                        <th class="center">Ações</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach($users as $item)
+                        <tr>
+                          <td>{{ $loop->iteration }}</td>
+                          <td>{{$item->name}}</td>
+                          <td>{{$item->email}}</td>
+                          <td>{{$item->is_admin}}</td>
+
+                          <td>
+                            <a href="{{url('/users/'.$item->id)}}" title="View User"><button class="btn btn-info bt-sm"><i class="fa fa-eye" aria-hidden="true"></i>View</button></a>
+                            <a href="{{url('/users/'.$item->id.'/edit')}}" title="Edit User"><button class="btn btn-primary bt-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</button></a>
+                            <form method="POST" action="{{url('/users' . '/' . $item->id)}}" accept-charset="UTF-8" style="display:inline ">
+                                  {{method_field('DESTROY')}}
+                                  {{ csrf_field()}}
+                              <button title="Delete User" class="btn btn-danger bt-sm" type="submit" onclick="return confirm('Confirm delete?')"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Delete</button> 
+                            </form>  
+                          </td>
+                        </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </body>
 </html>
