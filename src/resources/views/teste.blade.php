@@ -75,7 +75,7 @@ background-image: url(image/background.jpg);
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                  <h2>LARAVEL SEU MERDA FUNCIONA!  </h2>
+                  <h2>LARAVEL FUNCIONA! plz  </h2>
               </div>
               <div class="card-body">
                 @if(auth()->check()||auth()->check()->is_admin==1)
