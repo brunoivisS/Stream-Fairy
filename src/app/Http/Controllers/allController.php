@@ -19,17 +19,16 @@ class allController extends Controller
 
     public function create(){
     
-        if(auth()->check()){
-            return redirect()->route('home.index')->with('success','Logged in'); 
-        } else{
-            return view("create");
-        }
+       
+            return view("register");
+
     }
     public function register(){
             return view("register");
     }
     public function store(Request $request){
         try{
+            
             $input = $request->all();
             $sorvete['name']= ($input['name']);
             $sorvete['email'] = ($input['email']);
@@ -63,11 +62,7 @@ class allController extends Controller
 
     }
 
-    public function delete($id){
-        $user = new User;
-        $delete = $user::destroy($id);
-        return redirect('users')->with('flash_message','User deleted!');
-    }
+    
 
     public function show($id){
         try{
@@ -82,4 +77,5 @@ class allController extends Controller
             return $e;
         }
     }
+    
 }

@@ -9,7 +9,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="{{url('css/app.css')}}">
         
         <!-- Styles -->
         <style>
@@ -19,7 +19,7 @@
 body {
     background-repeat: no-repeat;
 background-size: cover;
-background-image: url(image/background.jpg);
+background-image: url({{url('image/background.jpg')}});
     
 }
 #phone {
@@ -69,8 +69,8 @@ background-image: url(image/background.jpg);
         </style>
     </head>
     <body >      
-      <a href="{{route('users')}}"></a>
-        <img src="image/StreamFairy.png" width="auto" height="auto" alt="Stickman">
+      <a href="{{route('login')}}"></a>
+        <img src="{{url('image/StreamFairy.png')}}" width="auto" height="auto" alt="Stickman">
         
             @if ($errors->any())
     <div class="alert alert-danger">
@@ -81,9 +81,9 @@ background-image: url(image/background.jpg);
         </ul>
     </div>
     @endif      
-              
+    
                 <form method="post" action="{{url('users')}}">
-                  {{!! csrf_field() !!}}
+                    @csrf
                     <div>
                         <section class="vh-100 gradient-custom">
                             <div class="container py-5 h-100">
@@ -94,7 +94,7 @@ background-image: url(image/background.jpg);
                           
                                       <div class="mb-md-5 mt-md-4 pb-5">
                           
-                                        <h2 class="fw-bold mb-5 text-uppercase">Sign Up</h2>
+                                        <h2 class="fw-bold mb-5 text-uppercase">Register</h2>
                                         @if(session()->has('success'))
                                         {{ session()->get('success') }} 
                                         @endif
@@ -124,14 +124,13 @@ background-image: url(image/background.jpg);
                                           <span style="color='blue'">{{$message}}</span>
                                         @enderror
                                           <label class="form-label"  for="typePasswordX"></label>
-                                        <button class="btn btn-outline-light btn-lg login col-12 px-5" value="Save"  type="submit">Sign Up</button>
+                                        <button class="btn btn-outline-light btn-lg login col-12 px-5" value="Save"  type="submit">Register</button>
                                                                                    
                                       </div>
                           
                                      
                            <div>
-                                        <p class="mb-0">Do you have an account? <a href="{{route('login')}}" class="text-white-50 fw-bold">Login In</a>
-                                        </p>
+                                        
                                       </div>
                                     </div>
                                   </div>

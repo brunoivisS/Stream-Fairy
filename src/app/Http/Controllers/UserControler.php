@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Model\user_line;
 use App\Models\User;
-
+use Error;
 
 use function PHPUnit\Framework\callback;
 
@@ -79,60 +79,35 @@ class UserControler extends Controller
 
     public function create(Request $request)
     { 
-        //     'name'             => 'required',                        // just a normal required validation
-        //     'email'            => 'required|email|unique:ducks',     // required and must be unique in the ducks table
-        //     'password'         => 'required',
-        //     'password_confirm' => 'required|same:password'         
-        // ]
-       
-        $data = $request->all();
-        if($request->imagem == null){
-            return error_log(404);
-        } else{
-            echo"nice";
+        try{
+            $input = $request->all();
+            $sorvete['name']= ($input['name']);
+            $sorvete['email'] = ($input['email']);
+            $sorvete['password'] = bcrypt($input['password']);
+            $user = new User;
+            $user::create($sorvete);
+            return redirect()->route('login');
+
+
         }
-        dd($data);
-        // do the validation ----------------------------------
-        // validate against the inputs from our form
-        
-    
-        // check if the validator failed -----------------------
-        // if ($validator->fails()) {
-    
-        //     // get the error messages from the validator
-        //     $messages = $validator->messages();
-    
-        //     // redirect our user back to the form with the errors from the validator
-        //     return redirect()->route('login')
-        //         ->withErrors($validator);
-        // }
-
-
-
-
-
-        return redirect()->route('login')->whith('Sucess', 'Logged in');
-    }
-
-
-    public function show($id){
-
-    }
-
-
-    public function edit(string $id)
-    { 
+        catch(Error $e){
+            return $e;
+        }
        
     }
- 
-    public function update(Request $request,string $id)
-    { 
+
     
-    }
-    
-    public function delete($id)
-    { 
-        
+    public function delete($id){
+        $sur = auth()->user();
+        if($sur['id'] == $id){
+            abort(403);
+        } else 
+        {
+            
+            $user = new User;
+            $delete = $user::where('id',$id)->delete();
+            return redirect('users');
+        }
     }
 
 
