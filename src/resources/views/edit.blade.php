@@ -82,7 +82,7 @@ background-image: url({{url('images/background.jpg')}});
                   
                               <div class="mb-md-5 mt-md-4 pb-5">
                   
-                                <h2 class="fw-bold mb-5 text-uppercase">Login</h2>
+                                <h2 class="fw-bold mb-5 text-uppercase">User</h2>
                                 <div class="form-outline form-white mb-4">
                                     <input type="hidden" id="typeEmailX"  name="id" value="{{$edit->id}}" placeholder="Email" class="form-control form-control-lg" />
                                    

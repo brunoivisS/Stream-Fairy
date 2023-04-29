@@ -19,17 +19,17 @@ docker-compose up -d --build
 
 executar esse comando 
 
-docker-compose composer install 
+docker-compose run composer install
+para roda as migrations
+docker-compose run artisan migrate    
+para roda as seeds
+docker-compose run artisan db:seed    
+
+
 
 após execuca e conclui download,  
 
 execute  docker-compose down 
-
-agora cópia e cola o .env.example  
-
-renome a cópia para .env 
-
-coloque isso no .env 
 
 APP_KEY=base64:8h+WqvnKXoBtyFxs16VhVF1Aboydx+EhlkospZTQ+Ls= 
 
@@ -37,5 +37,8 @@ prontinho, agora apenas execute docker-compose up
 
 pronto a aplicação está rodando na sua máquina 
 
+(caso estive dando erro de stream na aplicação, execute:
+"docker-compose exec php chmod  -R 777 storage"
+erro the stream or file)
  
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$

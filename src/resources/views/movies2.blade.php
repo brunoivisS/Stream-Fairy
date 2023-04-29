@@ -30,7 +30,7 @@ background-image: url(image/background.jpg);
 
         </style>
     </head>
-    <body >
+    <body ><a href="{{route('user.destroy')}}">Logout</a>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/home"><img src="image/StreamFairy.png" width="250px"height="100px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

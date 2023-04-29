@@ -81,8 +81,8 @@ background-image: url(image/background.jpg);
         </ul>
     </div>
     @endif      
-              
-                <form method="post" action="{{url('users')}}">
+    
+                <form method="post" action="{{route('user.create')}}">
                     @csrf
                     <div>
                         <section class="vh-100 gradient-custom">

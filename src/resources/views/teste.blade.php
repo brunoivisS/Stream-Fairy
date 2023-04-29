@@ -75,11 +75,11 @@ background-image: url(image/background.jpg);
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                  <h2>LARAVEL FUNCIONA! plz  </h2>
+                  <h2>Adminstração de Users </h2>
               </div>
               <div class="card-body">
                 @if(auth()->check()||auth()->check()->is_admin==1)
-                  <a href="{{url('/users/register')}}" class="btn btn-success btn-sm" title="Add New User">
+                  <a href="{{url('/users/create')}}" class="btn btn-success btn-sm" title="Add New User">
                     Add New User
                   </a>
                     @else
@@ -93,7 +93,7 @@ background-image: url(image/background.jpg);
                       <tr class="items-center justify-center">
                         <th>#</th>
                         <th>Name</th>
-                        <th>Password</th>
+                        <th>Email</th>
                         <th>Adm</th>
                         <th class="center">Ações</th>
                       </tr>
@@ -109,10 +109,10 @@ background-image: url(image/background.jpg);
                           <td>
                             <a href="{{url('/users/'.$item->id)}}" title="View User"><button class="btn btn-info bt-sm"><i class="fa fa-eye" aria-hidden="true"></i>View</button></a>
                             <a href="{{url('/users/'.$item->id.'/edit')}}" title="Edit User"><button class="btn btn-primary bt-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</button></a>
-                            <form method="POST" action="{{url('/users' . '/' . $item->id)}}" accept-charset="UTF-8" style="display:inline ">
-                                  {{method_field('DESTROY')}}
-                                  {{ csrf_field()}}
-                              <button title="Delete User" class="btn btn-danger bt-sm" type="submit" onclick="return confirm('Confirm delete?')"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Delete</button> 
+                            <form method="post" action="{{url('/delete'.'/'. $item->id.''.'/delete')}}" accept-charset="UTF-8" style="display:inline ">
+                              @csrf
+                     <input type="hidden" name="id"  value="{{$item->id}}">
+                              <button type="submit">Delete</button> 
                             </form>  
                           </td>
                         </tr>
