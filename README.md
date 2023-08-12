@@ -34,7 +34,7 @@
 
   ### Para executar a aplicação execute:
   ```http
-    npm run dev
+    docker-compose up -d
   ```
  ### para que execute com exito a aplicação é nessario inseri esse codigo no arquivo .env:
   ```http
