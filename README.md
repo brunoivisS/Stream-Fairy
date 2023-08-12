@@ -5,7 +5,7 @@
 
 ### para fazer download da aplicação, execute o seguinte comando:
 ```http
-  git clone https://github.com/brunoivisS/Portfolio.git
+  git clone https://github.com/brunoivisS/Stream-Fairy.git
 ```
  
 #### Após efeituar download, entre na pasta do projeto, e execute:
