@@ -31,13 +31,6 @@
 ```http
   execute  docker-compose down 
 ```
-#### Para subituir o ip voce precisa sabe o ip da sua maquina
-
-#### No ubunutu ifconfig | no windows ipconfig
-### Altere o ip local que está definido abaixo:
-| Parâmetro   | Tipo       | IP                           |
-| :---------- | :--------- | :---------------------------------- |
-| `host: "192.168.1.9",` | `string` | your_ip |
 
   ### Para executar a aplicação execute:
   ```http
