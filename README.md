@@ -1,44 +1,57 @@
-# Stream-Fairy
- Desenvolver um catálogo de filmes (estilo Netflix) utilizando PHP e Laravel
- --------Documentação do Stream Fairy-----------
-para que o ambiente pode ser executado foi necessário 
 
-dividir os serviços em microsserviço, o nginx_fairys é o único responsável 
+## Stream-Fairy
 
-pela renderização da página, NGINX é um software open-source para servidores web, 
+#### Desenvolver um catálogo de filmes (estilo Netflix) utilizando PHP e Laravel
 
-funciona como proxy reverso, escondendo o ip do servidor que executa o código, 
-
-gerando mais segurança no ambiente de produção; 
-
+### para fazer download da aplicação, execute o seguinte comando:
+```http
+  git clone https://github.com/brunoivisS/Portfolio.git
+```
  
-$$$$$$$$$$$$$$$$$$$$$$$$COMO RODA A APLICAÇÃO$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-para que aplicação rode vc precisa  
+#### Após efeituar download, entre na pasta do projeto, e execute:
+```http
+  docker-compose up -d --build
+```
+#### Após efeituar download, entre na pasta do projeto:
+```http
+  docker-compose run composer install
+```
+#### Após efeituar download, entre na pasta do projeto:
+```http
+  docker-compose run artisan migrate
+```
+#### Para roda as seeds, execute o seguinte comando:
+```http
+ docker-compose run artisan db:seed
+```
 
-docker-compose up -d --build  
-
-executar esse comando 
-
-docker-compose run composer install
-para roda as migrations
-docker-compose run artisan migrate    
-para roda as seeds
-docker-compose run artisan db:seed    
+#### Após, executa com exitos todos os comandos acima, execute abaixo:
 
 
+```http
+  execute  docker-compose down 
+```
+#### Para subituir o ip voce precisa sabe o ip da sua maquina
 
-após execuca e conclui download,  
+#### No ubunutu ifconfig | no windows ipconfig
+### Altere o ip local que está definido abaixo:
+| Parâmetro   | Tipo       | IP                           |
+| :---------- | :--------- | :---------------------------------- |
+| `host: "192.168.1.9",` | `string` | your_ip |
 
-execute  docker-compose down 
+  ### Para executar a aplicação execute:
+  ```http
+    npm run dev
+  ```
+ ### para que execute com exito a aplicação é nessario inseri esse codigo no arquivo .env:
+  ```http
+  APP_KEY=base64:8h+WqvnKXoBtyFxs16VhVF1Aboydx+EhlkospZTQ+Ls=
+```
+ ### ATENÇÃO
+ ##### caso estive dando erro de stream na aplicação, erro the stream or file, execute:
+  ```http
+  docker-compose exec php chmod  -R 777 storage
+```
 
-APP_KEY=base64:8h+WqvnKXoBtyFxs16VhVF1Aboydx+EhlkospZTQ+Ls= 
 
-prontinho, agora apenas execute docker-compose up 
 
-pronto a aplicação está rodando na sua máquina 
-
-(caso estive dando erro de stream na aplicação, execute:
-"docker-compose exec php chmod  -R 777 storage"
-erro the stream or file)
- 
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
