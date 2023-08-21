@@ -1,47 +1,47 @@
 
 ## Stream-Fairy
 
-#### Desenvolver um catálogo de filmes (estilo Netflix) utilizando PHP e Laravel
+#### Develop a movie catalog (Netflix-style) using PHP and Laravel
 
-### para fazer download da aplicação, execute o seguinte comando:
+### To download the application, execute the following command:
 ```http
   git clone https://github.com/brunoivisS/Stream-Fairy.git
 ```
  
-#### Após efeituar download, entre na pasta do projeto, e execute:
+#### After downloading, navigate to the project folder and execute:
 ```http
   docker-compose up -d --build
 ```
-#### Após efeituar download, entre na pasta do projeto:
+#### After executing the command, run:
 ```http
   docker-compose run composer install
 ```
-#### Após efeituar download, entre na pasta do projeto:
+#### After the installation, to run the migrations, execute:
 ```http
   docker-compose run artisan migrate
 ```
-#### Para roda as seeds, execute o seguinte comando:
+#### To run the seeds, execute the following command:
 ```http
  docker-compose run artisan db:seed
 ```
 
-#### Após, executa com exitos todos os comandos acima, execute abaixo:
+#### After successfully executing all the commands above, execute the following:
 
 
 ```http
   execute  docker-compose down 
 ```
 
-  ### Para executar a aplicação execute:
+  ### To run the application, execute:
   ```http
     docker-compose up -d
   ```
- ### para que execute com exito a aplicação é nessario inseri esse codigo no arquivo .env:
+ ### To make the application run successfully, it's necessary to insert this code into the .env file:
   ```http
   APP_KEY=base64:8h+WqvnKXoBtyFxs16VhVF1Aboydx+EhlkospZTQ+Ls=
 ```
- ### ATENÇÃO
- ##### caso estive dando erro de stream na aplicação, erro the stream or file, execute:
+ ### ATTENTION
+ ##### If you encounter a stream error in the application, "the stream or file" error, execute:
   ```http
   docker-compose exec php chmod  -R 777 storage
 ```
